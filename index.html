@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmic AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body class="main-galaxy-background">
+    <div class="fixed-background-elements">
+        <div class="star galaxy-star-1"></div>
+        <div class="star galaxy-star-2"></div>
+        <div class="star galaxy-star-3"></div>
+        <div class="star galaxy-star-4"></div>
+        <div class="star galaxy-star-5"></div>
+        <div class="star galaxy-star-6"></div>
+        <div class="star galaxy-star-7"></div>
+        <div class="star galaxy-star-8"></div>
+        <div class="star galaxy-star-9"></div>
+        <div class="star galaxy-star-10"></div>
+        <div class="star galaxy-star-11"></div>
+        <div class="star galaxy-star-12"></div>
+        <div class="star galaxy-star-13"></div>
+        <div class="star galaxy-star-14"></div>
+        <div class="star galaxy-star-15"></div>
+
+        <div class="cosmic-dust-effect cosmic-dust-1"></div>
+        <div class="cosmic-dust-effect cosmic-dust-2"></div>
+        <div class="cosmic-dust-effect cosmic-dust-3"></div>
+
+        <div class="amorphous-glow amorphous-glow-1"></div>
+        <div class="amorphous-glow amorphous-glow-2"></div>
+        <div class="amorphous-glow amorphous-glow-3"></div>
+
+        <div class="shooting-star shooting-star-1"></div>
+        <div class="shooting-star shooting-star-2"></div>
+        <div class="shooting-star shooting-star-3"></div>
+    </div>
+
+    <div class="relative z-10 flex-grow flex flex-col">
+        <nav class="bg-\[\#1a2b47\] shadow-lg p-4 relative z-20">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-\[\#FF5733\]"
+                    onclick="setCurrentPage('home'); return false;">
+                    Cosmic AI
+                </a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300"
+                        onclick="scrollToSection('hero'); return false;">Home</a>
+                    <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300"
+                        onclick="setCurrentPage('aboutAI'); return false;">About AI</a>
+                    <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300"
+                        onclick="setCurrentPage('capabilitiesAI'); return false;">Capabilities</a>
+                    <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300"
+                        onclick="setCurrentPage('contact'); return false;">Contact</a>
+                    <button id="darkModeToggle" aria-label="Toggle dark mode">
+                        <svg id="moonIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                        <svg id="sunIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h1M2 12h1m15.354 5.354l-.707.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-200 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div id="home-page" class="page-content active">
+            <header id="hero"
+                class="relative flex-grow flex items-center justify-center text-center p-8 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-\[\#1a2b47\] to-blue-900 opacity-90 z-0"></div>
+
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border-4 border-\[\#FF5733\] border-opacity-20 animate-spin-slow z-0 hidden md:block">
+                </div>
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border-4 border-\[\#FF5733\] border-opacity-30 animate-spin-slow-reverse z-0 hidden md:block">
+                </div>
+
+                <div class="relative z-10 max-w-4xl mx-auto">
+                    <h1
+                        class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg animate-heading-glow">
+                        Unlock the Power of
+                        <span class="text-\[\#FF5733\]">Cosmic AI</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                        Experience intelligent solutions designed to transform your world.
+                        Our advanced AI brings innovation closer to you.
+                    </p>
+                    <div
+                        class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button
+                            class="bg-\[\#FF5733\] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
+                            onclick="setCurrentPage('aboutAI'); return false;">
+                            Learn More About AI
+                        </button>
+                        <button id="askCosmicAIButton"
+                            class="bg-transparent border-2 border-\[\#FF5733\] text-\[\#FF5733\] font-bold py-3 px-8 rounded-full shadow-lg hover:bg-\[\#FF5733\] hover:text-white transition-all duration-300 transform hover:scale-105"
+                            onclick="window.location.href = 'main.html'"; return false;">
+                            Chat with Cosmic AI
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <section id="ai-capabilities" class="bg-\[\#1a2b47\] py-16 px-4">
+                <div class="container mx-auto">
+                    <h2 class="text-4xl font-bold text-white text-center mb-12">
+                        Our AI Capabilities
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div
+                            class="bg-gray-800 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-\[\#FF5733\] transition-all duration-300 transform hover:-translate-y-2">
+                            <div class="text-\[\#FF5733\] mb-4 text-5xl text-center">
+                                <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L2 22l1.7-4.1C1.9 15.6 2 13.5 2 12a8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5A8.5 8.5 0 0 1 21 11.5z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white mb-3 text-center">
+                                Natural Language Processing
+                            </h3>
+                            <p class="text-gray-300 text-center">
+                                Understand, interpret, and generate human language for
+                                chatbots, sentiment analysis, and translation.
+                            </p>
+                        </div>
+                        <div
+                            class="bg-gray-800 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-\[\#FF5733\] transition-all duration-300 transform hover:-translate-y-2">
+                            <div class="text-\[\#FF5733\] mb-4 text-5xl text-center">
+                                <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.75 1.3a2 2 0 0 0 .73 2.73l.15.08a2 2 0 0 1 1 1.74v.18a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.75-1.3a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74V4a2 2 0 0 0-2-2z">
+                                    </path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <line x1="17" y1="7" x2="22" y2="2"></line>
+                                    <polyline points="22 7 22 2 17 2"></polyline>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white mb-3 text-center">
+                                Machine Learning & Analytics
+                            </h3>
+                            <p class="text-gray-300 text-center">
+                                Build intelligent models to predict trends, automate
+                                decisions, and extract insights from data.
+                            </p>
+                        </div>
+                        <div
+                            class="bg-gray-800 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-\[\#FF5733\] transition-all duration-300 transform hover:-translate-y-2">
+                            <div class="text-\[\#FF5733\] mb-4 text-5xl text-center">
+                                <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white mb-3 text-center">
+                                Computer Vision
+                            </h3>
+                            <p class="text-gray-300 text-center">
+                                Enable systems to "see" and interpret visual data for image
+                                recognition, object detection, and more.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer id="contact-footer"
+                class="bg-\[\#1a2b47\] py-8 px-4 text-center text-gray-400 border-t border-gray-700">
+                <div class="container mx-auto">
+                    <p>&copy; 2024 Cosmic AI. All rights reserved.</p>
+                    <p class="mt-2">
+                        Innovating with intelligence.
+                    </p>
+                </div>
+            </footer>
+        </div>
+
+        <div id="aboutAI-page" class="page-content">
+            <div class="flex-grow flex flex-col items-center justify-center p-8 text-center text-gray-100">
+                <div
+                    class="relative z-10 max-w-5xl mx-auto bg-gray-900 bg-opacity-80 p-10 rounded-xl shadow-2xl border border-gray-700">
+                    <h2 class="text-5xl font-extrabold text-\[\#FF5733\] mb-8 page-title-glow">
+                        Exploring Artificial Intelligence
+                    </h2>
+
+                    <p class="text-lg leading-relaxed mb-6">
+                        Artificial Intelligence (AI) is a rapidly evolving field of
+                        computer science dedicated to creating systems that can perform
+                        tasks normally requiring human intelligence. This includes
+                        learning from data, recognizing patterns, making decisions,
+                        understanding natural language, and self-correction.
+                    </p>
+
+                    <h3 class="text-3xl font-bold text-white mb-4 mt-8 section-title-glow">
+                        The Core of AI
+                    </h3>
+                    <p class="text-lg leading-relaxed mb-6">
+                        At its core, AI seeks to enable machines to mimic cognitive
+                        functions associated with the human mind, such as learning and
+                        problem-solving. This is achieved through various techniques and
+                        disciplines, including:
+                    </p>
+                    <ul class="list-disc list-inside text-lg text-left mx-auto max-w-2xl mb-6">
+                        <li class="mb-2">
+                            <strong>Machine Learning:</strong> Algorithms that allow systems
+                            to learn from data without explicit programming.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Deep Learning:</strong> A subset of machine learning
+                            using neural networks with multiple layers to learn complex
+                            patterns.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Natural Language Processing (NLP):</strong> Enabling
+                            computers to understand, interpret, and generate human language.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Computer Vision:</strong> Giving computers the ability
+                            to "see" and interpret visual information from the world.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Robotics:</strong> Integrating AI with physical machines
+                            to perform tasks in the real world.
+                        </li>
+                    </ul>
+
+                    <h3 class="text-3xl font-bold text-white mb-4 mt-8 section-title-glow">
+                        Impact and Future
+                    </h3>
+                    <p class="text-lg leading-relaxed mb-6">
+                        AI is transforming industries ranging from healthcare and finance
+                        to transportation and entertainment. It offers unparalleled
+                        opportunities for innovation, efficiency, and discovery. As AI
+                        continues to advance, it promises to reshape our society, creating
+                        new possibilities and addressing some of the world's most pressing
+                        challenges.
+                    </p>
+                    <p class="text-lg leading-relaxed mb-8">
+                        At Cosmic AI, we are at the forefront of this revolution,
+                        committed to building intelligent systems that are not only
+                        powerful but also ethical, transparent, and beneficial for all of
+                        humanity.
+                    </p>
+
+                    <button
+                        class="bg-\[\#FF5733\] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 mt-8"
+                        onclick="setCurrentPage('home'); return false;">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="capabilitiesAI-page" class="page-content">
+            <div class="flex-grow flex flex-col items-center justify-center p-8 text-center text-gray-100">
+                <div
+                    class="relative z-10 max-w-5xl mx-auto bg-gray-900 bg-opacity-80 p-10 rounded-xl shadow-2xl border border-gray-700">
+                    <h2 class="text-5xl font-extrabold text-\[\#FF5733\] mb-8 page-title-glow">
+                        Comprehensive AI Capabilities
+                    </h2>
+
+                    <p class="text-lg leading-relaxed mb-6">
+                        Cosmic AI offers a suite of advanced artificial intelligence
+                        capabilities designed to empower your business and projects. Our
+                        expertise spans various domains of AI, delivering intelligent
+                        solutions tailored to your unique needs.
+                    </p>
+
+                    <h3 class="text-3xl font-bold text-white mb-4 mt-8 section-title-glow">
+                        Natural Language Processing (NLP)
+                    </h3>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Our NLP capabilities enable machines to understand, interpret, and
+                        generate human language, making interactions more intuitive and
+                        data analysis more profound.
+                    </p>
+                    <ul class="list-disc list-inside text-lg text-left mx-auto max-w-2xl mb-6">
+                        <li class="mb-2">
+                            <strong>Sentiment Analysis:</strong> Extract emotions and
+                            opinions from text data.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Text Summarization:</strong> Condense long documents
+                            into concise summaries.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Chatbots & Virtual Assistants:</strong> Develop
+                            intelligent conversational interfaces.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Machine Translation:</strong> Translate text between
+                            languages with high accuracy.
+                        </li>
+                    </ul>
+
+                    <h3 class="text-3xl font-bold text-white mb-4 mt-8 section-title-glow">
+                        Machine Learning & Predictive Analytics
+                    </h3>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Leverage the power of data to discover patterns, make predictions,
+                        and optimize processes with our robust machine learning solutions.
+                    </p>
+                    <ul class="list-disc list-inside text-lg text-left mx-auto max-w-2xl mb-6">
+                        <li class="mb-2">
+                            <strong>Predictive Modeling:</strong> Forecast future outcomes
+                            and trends.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Anomaly Detection:</strong> Identify unusual patterns or
+                            outliers in data.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Recommendation Systems:</strong> Personalize user
+                            experiences with intelligent suggestions.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Automated Decision Making:</strong> Implement
+                            data-driven decision processes.
+                        </li>
+                    </ul>
+
+                    <h3 class="text-3xl font-bold text-white mb-4 mt-8 section-title-glow">
+                        Computer Vision
+                    </h3>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Give your systems the ability to "see" and understand the visual
+                        world, unlocking new possibilities in various applications.
+                    </p>
+                    <ul class="list-disc list-inside text-lg text-left mx-auto max-w-2xl mb-6">
+                        <li class="mb-2">
+                            <strong>Object Detection & Recognition:</strong> Identify and
+                            classify objects within images and videos.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Facial Recognition:</strong> Secure and authenticate
+                            users through facial features.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Image Analysis:</strong> Extract meaningful information
+                            from visual content.
+                        </li>
+                        <li class="mb-2">
+                            <strong>Augmented Reality Integration:</strong> Blend digital
+                            information with real-world views.
+                        </li>
+                    </ul>
+
+                    <button
+                        class="bg-\[\#FF5733\] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 mt-8"
+                        onclick="setCurrentPage('home'); return false;">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact-page" class="page-content">
+            <div class="flex-grow flex flex-col items-center justify-center p-8 text-center text-gray-100">
+                <div
+                    class="relative z-10 max-w-2xl mx-auto bg-gray-900 bg-opacity-80 p-10 rounded-xl shadow-2xl border border-gray-700">
+                    <h2 class="text-5xl font-extrabold text-\[\#FF5733\] mb-6 page-title-glow">
+                        Contact Us
+                    </h2>
+                    <p class="text-2xl font-semibold text-gray-300">
+                        THIS PAGE IS UNDER MAINTENANCE FOR NOW
+                    </p>
+                    <p class="text-lg text-gray-400 mt-4">
+                        Please check back later or use other methods to reach us.
+                    </p>
+                    <button
+                        class="bg-\[\#FF5733\] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 mt-8"
+                        onclick="setCurrentPage('home'); return false;">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="comingSoon-page" class="page-content">
+            <div class="flex-grow flex flex-col items-center justify-center p-8 text-center text-gray-100">
+                <div
+                    class="relative z-10 max-w-2xl mx-auto bg-gray-900 bg-opacity-80 p-10 rounded-xl shadow-2xl border border-gray-700">
+                    <h2 class="text-5xl font-extrabold text-\[\#FF5733\] mb-6 page-title-glow">
+                        Coming Soon!
+                    </h2>
+                    <p class="text-2xl font-semibold text-gray-300">
+                        The "Ask Cosmic AI" feature is releasing soon.
+                    </p>
+                    <p class="text-lg text-gray-400 mt-4">
+                        Stay tuned for exciting updates!
+                    </p>
+                    <button
+                        class="bg-\[\#FF5733\] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 mt-8"
+                        onclick="setCurrentPage('home'); return false;">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="chat-page" class="page-content">
+            <div class="flex-grow flex flex-col items-center justify-center p-8 text-center text-gray-100">
+                <div class="relative z-10 max-w-2xl mx-auto bg-gray-900 bg-opacity-80 p-8 rounded-xl shadow-2xl border border-gray-700 flex flex-col w-full h-[600px]">
+                    <h2 class="text-4xl font-extrabold text-\[\#FF5733\] mb-4 page-title-glow">
+                        Chat with Cosmic AI
+                    </h2>
+                    <div id="chatMessages" class="flex-1 w-full overflow-y-auto bg-gray-800 rounded-lg p-4 mb-4 text-left"
+                        style="min-height:200px;max-height:350px;">
+                        <!-- Messages will appear here -->
+                    </div>
+                    <form id="chatForm" class="flex w-full gap-2">
+                        <input id="chatInput" type="text" autocomplete="off" placeholder="Type your message..."
+                            class="flex-1 rounded-full px-4 py-2 text-black focus:outline-none" />
+                        <button type="submit"
+                            class="bg-\[\#FF5733\] text-white font-bold px-6 py-2 rounded-full hover:bg-orange-600 transition-all duration-300">
+                            Send
+                        </button>
+                    </form>
+                    <button
+                        class="bg-\[\#FF5733\] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 mt-6"
+                        onclick="setCurrentPage('home'); return false;">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="index.js"></script>
