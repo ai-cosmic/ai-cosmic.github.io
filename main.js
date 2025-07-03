@@ -13,6 +13,9 @@ Cosmic AI is a next-generation assistant designed to help users explore powerful
 It is fast, helpful, creative, and tailored to guide users through everything related to modern AI products.
 
 Stay concise, friendly, and always answer as Cosmic AI.
+
+Made By Alan Betty. NOT GOOGLE.
+Alan Betty is a Frontend Developer, the creator of Cosmic AI
 `;
     // Use correct input and form IDs
     const chatForm = document.getElementById("chatForm");
