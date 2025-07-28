@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic AI - Exploring the Universe</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="Cosmic AI.png" type="image/png">
+<link rel="manifest" href="/site.webmanifest">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles to override or enhance Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            background-color: #000000; /* Explicitly black background */
+            color: #e0e0e0; /* Primary light text for dark theme */
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        /* Hero text shadow for better contrast */
+        .hero-title {
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(79, 70, 229, 0.3);
+        }
+
+        /* Custom scroll animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-left.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-right.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+
+        /* Typing effect for hero text */
+        .typing-text {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+        }
+        .typewriter-cursor {
+            display: inline-block;
+            color: #a78bfa;
+            animation: blink-caret 0.8s step-end infinite;
+            font-weight: bold;
+            font-size: inherit;
+        }
+        @keyframes blink-caret {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Glassmorphism effect */
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.05); /* Glass background */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Glass border */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Glass shadow */
+            transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        /* Hover effects for buttons/cards */
+        .hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+        }
+
+        /* Button Pulse Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+            }
+        }
+        .animate-pulse-btn {
+            animation: pulse 2s infinite;
+        }
+
+        /* Sticky Header */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background-color: transparent; /* Initially transparent */
+            backdrop-filter: blur(0); /* Initially no blur */
+            z-index: 100;
+            transition: background-color 0.3s ease, border-bottom 0.3s ease, backdrop-filter 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        .sticky-header.scrolled {
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background when scrolled */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Border when scrolled */
+            backdrop-filter: blur(10px);
+        }
+
+        /* Specific Tailwind-like colors for consistency in dark mode (hardcoded) */
+        .text-blue-400 { color: #60a5fa; }
+        .text-purple-400 { color: #a78bfa; }
+        .text-pink-400 { color: #f472b6; }
+        .text-red-400 { color: #ef4444; }
+
+        .text-blue-300 { color: #93c5fd; }
+        .text-purple-300 { color: #c4b5fd; }
+        .text-pink-300 { color: #f9a8d4; }
+
+        .text-blue-200 { color: #bfdbfe; }
+        .text-purple-200 { color: #ddd6fe; }
+        .text-pink-200 { color: #fbcfe8; }
+
+        /* Icon colors */
+        .text-green-400 { color: #4ade80; }
+        .text-yellow-400 { color: #facc15; }
+        .text-teal-400 { color: #2dd4bf; }
+        .text-red-400 { color: #fca5a5; }
+
+        /* Generic text colors */
+        .text-gray-200 { color: #e5e7eb; }
+        .text-gray-300 { color: #d1d5db; }
+        .text-gray-400 { color: #9ca3af; }
+
+        /* Adjust gradient colors for buttons (hardcoded to dark theme colors) */
+        .bg-gradient-to-r.from-blue-500.to-purple-600 {
+            background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+        }
+        .hover\:from-blue-600.hover\:to-purple-700:hover {
+            background-image: linear-gradient(to right, #2563eb, #7c3aed);
+        }
+        .bg-gradient-to-r.from-pink-500.to-red-600 {
+            background-image: linear-gradient(to right, #ec4899, #dc2626);
+        }
+        .hover\:from-pink-600.hover\:to-red-700:hover {
+            background-image: linear-gradient(to right, #db2777, #b91c1c);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200">
+    <!-- Header -->
+    <header class="sticky-header relative z-10 p-6">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="text-3xl font-bold text-blue-400">
+                Cosmic <span class="text-purple-400">AI</span>
+            </div>
+            <ul class="flex space-x-8 items-center">
+                <li><a href="#home" class="hover:text-blue-300 transition duration-300 ease-in-out">Home</a></li>
+                <li><a href="#about" class="hover:text-blue-300 transition duration-300 ease-in-out">About</a></li>
+                <li><a href="#features" class="hover:text-blue-300 transition duration-300 ease-in-out">Features</a></li>
+                <li><a href="#team" class="hover:text-blue-300 transition duration-300 ease-in-out">Team</a></li>
+                <li><a href="#contact" class="hover:text-blue-300 transition duration-300 ease-in-out">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative z-10 flex items-center justify-center min-h-screen py-20 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-6xl md:text-7xl font-extrabold leading-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 typing-text hero-title">
+                <span id="typewriter-text"></span><span id="typewriter-cursor" class="typewriter-cursor">|</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-0 fade-in-up" style="animation-delay: 4s;">
+                The world's first AI to pioneer in space knowledge and exploration, built for the future of humanity among the stars.
+            </p>
+            <div class="opacity-0 fade-in-up flex flex-col sm:flex-row justify-center items-center gap-4 mb-12" style="animation-delay: 5s;">
+                <a href="#about" class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover-effect animate-pulse-btn">
+                    Discover More
+                </a>
+                <a href="main.html" target="login.html" rel="noopener noreferrer" class="inline-block bg-gradient-to-r from-pink-500 to-red-600 hover:from-pink-600 hover:to-red-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover-effect">
+                    Explore Space
+                </a>
+                <!-- New Early Access Button -->
+                <a href="cosmic-ai-soon.html" class="inline-block bg-gradient-to-r from-purple-500 to-teal-500 hover:from-purple-600 hover:to-teal-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover-effect">
+                    Early Access starting soon
+                </a>
+            </div>
+
+            <!-- Rectangular Box for Creators -->
+            <div class="glassmorphism p-6 rounded-lg max-w-2xl mx-auto text-left fade-in-up" style="animation-delay: 5.5s;">
+                <p class="text-lg font-semibold text-white mb-2">
+                    Cosmic AI is proudly brought to you by:
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-300">
+                    <div>
+                        <p><span class="text-blue-300 font-bold">Pranav </span></p>
+                        <p>Owner & Lead Designer</p>
+                        <p class="text-sm text-gray-400">Lives in Chandigarh, India</p>
+                    </div>
+                    <div>
+                        <p><span class="text-pink-300 font-bold">Alan Betty</span></p>
+                        <p>Owner & Developer</p>
+                        <p class="text-sm text-gray-400">Lives in Kerala, India</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="relative z-10 py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-5xl font-bold text-center mb-16 text-blue-300 fade-in-up">About Cosmic AI</h2>
+            <div class="flex flex-col md:flex-row items-center space-y-12 md:space-y-0 md:space-x-12">
+                <div class="md:w-1/2 fade-in-left">
+                    <img src="https://placehold.co/600x400/1e293b/a5f3fc?text=Cosmic+AI+Vision" alt="Cosmic AI Vision" class="rounded-2xl shadow-xl glassmorphism hover-effect transition duration-300">
+                </div>
+                <div class="md:w-1/2 text-lg leading-relaxed space-y-6 fade-in-right text-gray-300">
+                    <p>Cosmic AI stands at the forefront of artificial intelligence, dedicated to revolutionizing our understanding of the universe. From deciphering complex astronomical data to predicting celestial events and guiding deep-space missions, Cosmic AI is designed to push the boundaries of human knowledge.</p>
+                    <p>Our advanced algorithms and neural networks process vast datasets from telescopes, probes, and observational instruments worldwide, extracting insights that were previously beyond human comprehension. Cosmic AI is not just a tool; it's a companion in our quest to explore the cosmos.</p>
+                    <p>It's the first truly autonomous AI system built specifically for the domain of space, capable of learning, adapting, and making decisions that optimize space exploration efforts and accelerate scientific discoveries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features/Capabilities Section -->
+    <section id="features" class="relative z-10 py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-5xl font-bold text-center mb-16 text-purple-300 fade-in-up">Capabilities</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Feature Card 1 -->
+                <div class="p-8 rounded-2xl glassmorphism transition duration-300 hover-effect flex flex-col items-center text-center fade-in-up">
+                    <div class="text-6xl mb-4 text-blue-400">🌌</div>
+                    <h3 class="text-3xl font-semibold mb-4 text-blue-200">Deep Space Data Analysis</h3>
+                    <p class="text-gray-300">Processes petabytes of astronomical data, identifying patterns and anomalies at unprecedented speeds.</p>
+                </div>
+                <!-- Feature Card 2 -->
+                <div class="p-8 rounded-2xl glassmorphism transition duration-300 hover-effect flex flex-col items-center text-center fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="text-6xl mb-4 text-pink-400">🚀</div>
+                    <h3 class="text-3xl font-semibold mb-4 text-pink-200">Autonomous Mission Planning</h3>
+                    <p class="text-gray-300">Optimizes trajectories, resource allocation, and scientific objectives for deep-space missions.</p>
+                </div>
+                <!-- Feature Card 3 -->
+                <div class="p-8 rounded-2xl glassmorphism transition duration-300 hover-effect flex flex-col items-center text-center fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="text-6xl mb-4 text-green-400">🔭</div>
+                    <h3 class="text-3xl font-semibold mb-4 text-green-400">Exoplanet Discovery & Characterization</h3>
+                    <p class="text-gray-300">Assists in identifying and characterizing new exoplanets, assessing their habitability potential.</p>
+                </div>
+                <!-- Feature Card 4 -->
+                <div class="p-8 rounded-2xl glassmorphism transition duration-300 hover-effect flex flex-col items-center text-center fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="text-6xl mb-4 text-yellow-400">💡</div>
+                    <h3 class="text-3xl font-semibold mb-4 text-yellow-400">Predictive Celestial Events</h3>
+                    <p class="text-gray-300">Forecasts cometary paths, asteroid trajectories, and supernova occurrences with high accuracy.</p>
+                </div>
+                <!-- Feature Card 5 -->
+                <div class="p-8 rounded-2xl glassmorphism transition duration-300 hover-effect flex flex-col items-center text-center fade-in-up" style="animation-delay: 0.8s;">
+                    <div class="text-6xl mb-4 text-teal-400">🧬</div>
+                    <h3 class="text-3xl font-semibold mb-4 text-teal-400">Astrobiology Insights</h3>
+                    <p class="text-gray-300">Analyzes biosignatures and potential life forms in extreme extraterrestrial environments.</p>
+                </div>
+                <!-- Feature Card 6 -->
+                <div class="p-8 rounded-2xl glassmorphism transition duration-300 hover-effect flex flex-col items-center text-center fade-in-up" style="animation-delay: 1s;">
+                    <div class="text-6xl mb-4 text-red-400">🛰️</div>
+                    <h3 class="text-3xl font-semibold mb-4 text-red-200">Space Debris Management</h3>
+                    <p class="text-gray-300">Monitors and predicts space junk movements, aiding in collision avoidance strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="relative z-10 py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-5xl font-bold text-center mb-16 text-blue-300 fade-in-up">The Visionaries Behind Cosmic AI</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-12 md:space-y-0 md:space-x-16">
+                <!-- Light (Pranav) Card -->
+                <div class="w-full md:w-1/2 lg:w-1/3 p-8 rounded-2xl glassmorphism transition duration-300 hover-effect text-center fade-in-up">
+                    <img src="https://placehold.co/200x200/4c1d95/a78bfa?text=Light" alt="Light (Pranav)" class="w-48 h-48 rounded-full mx-auto mb-6 object-cover border-4 border-blue-500 shadow-lg">
+                    <h3 class="text-3xl font-semibold mb-2 text-purple-200">Light (Pranav)</h3>
+                    <p class="text-blue-300 text-lg mb-4">Owner & Lead Designer</p>
+                    <p class="text-gray-300">Pranav, known as 'Light,' is the visionary owner and lead designer of Cosmic AI. His innovative design philosophy and deep understanding of user experience have shaped the intuitive and powerful interface of our AI, making complex cosmic data accessible and engaging.</p>
+                </div>
+                <!-- Alan (Alan Betty) Card -->
+                <div class="w-full md:w-1/2 lg:w-1/3 p-8 rounded-2xl glassmorphism transition duration-300 hover-effect text-center fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="https://placehold.co/200x200/4c1d95/a78bfa?text=Alan" alt="Alan (Alan Betty)" class="w-48 h-48 rounded-full mx-auto mb-6 object-cover border-4 border-purple-500 shadow-lg">
+                    <h3 class="text-3xl font-semibold mb-2 text-blue-200">Alan (Alan Betty)</h3>
+                    <p class="text-purple-300 text-lg mb-4">Owner & Lead Developer</p>
+                    <p class="text-gray-300">Alan Betty, simply 'Alan,' is the dedicated owner and lead developer behind Cosmic AI's robust architecture and functionality. His exceptional coding skills and commitment to cutting-edge technology ensure the AI's performance, scalability, and seamless integration with astronomical systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Simple Placeholder) -->
+    <section id="contact" class="relative z-10 py-20 px-4">
+        <div class="container mx-auto max-w-3xl text-center">
+            <h2 class="text-5xl font-bold mb-10 text-pink-300 fade-in-up">Get in Touch</h2>
+            <p class="text-xl mb-8 fade-in-up">
+                Have questions or want to collaborate on the future of space exploration? Reach out to us.
+            </p>
+            <a href="mailto:info@cosmicai.com" class="inline-block bg-gradient-to-r from-pink-500 to-red-600 hover:from-pink-600 hover:to-red-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover-effect fade-in-up">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-10 bg-transparent text-center text-gray-400">
+        <p>&copy; 2025 Cosmic AI. All rights reserved.</p>
+        <p class="mt-2">Built by Light (Pranav) and Alan (Alan Betty)</p>
+    </footer>
+
+    <script>
+        // JavaScript for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Scroll Animations ---
+            const faders = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
+
+            const appearOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -100px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('animate');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+
+            // --- Sticky Header ---
+            const header = document.querySelector('.sticky-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { // Add 'scrolled' class after 50px scroll
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+
+        // Typewriter animation for Cosmic AI (smooth, with moving cursor)
+        const textArray = [
+            "Unveiling the Cosmos",
+            "AI for Space Exploration",
+            "Cosmic Intelligence"
+        ];
+        const typingSpeed = 70;
+        const deletingSpeed = 40;
+        const pauseBetween = 2000;
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let currentText = '';
+        let isDeleting = false;
+
+        const typewriterText = document.getElementById('typewriter-text');
+        // Cursor is handled by CSS
+
+        document.addEventListener('DOMContentLoaded', () => {
+            type();
+        });
+
+        function type() {
+            if (!typewriterText) return;
+            if (isDeleting) {
+                if (charIndex > 0) {
+                    currentText = textArray[textIndex].substring(0, charIndex - 1);
+                    charIndex--;
+                    typewriterText.textContent = currentText;
+                    setTimeout(type, deletingSpeed);
+                } else {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % textArray.length;
+                    setTimeout(type, typingSpeed);
+                }
+            } else {
+                if (charIndex < textArray[textIndex].length) {
+                    currentText = textArray[textIndex].substring(0, charIndex + 1);
+                    charIndex++;
+                    typewriterText.textContent = currentText;
+                    setTimeout(type, typingSpeed);
+                } else {
+                    setTimeout(() => {
+                        isDeleting = true;
+                        setTimeout(type, deletingSpeed);
+                    }, pauseBetween);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

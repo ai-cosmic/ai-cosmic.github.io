@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic AI - Get Ready for Launch!</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="icon" href="Cosmic AI.png" type="image/png">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            background: #000000; /* Primary dark background */
+            color: #e0e0e0; /* Primary light text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            padding: 2rem; /* Add some padding for smaller screens */
+        }
+
+        /* Static Background Image for 8K Wallpaper Effect - consistent with main page */
+        .static-galaxy-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-image: url('https://placehold.co/7680x4320/000022/ffffff/blur?text=COSMIC+AI+8K+GALAXY');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.8) contrast(1.2);
+            opacity: 0.9;
+        }
+
+        .coming-soon-container {
+            background: rgba(255, 255, 255, 0.08); /* Slightly more opaque glassmorphism */
+            backdrop-filter: blur(15px); /* Stronger blur for focus */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 3rem; /* Slightly reduced padding for more content */
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInScale 1s ease-out forwards; /* Fade in and slightly scale */
+            position: relative; /* Ensure it's above the background */
+            z-index: 1;
+            margin: auto; /* Center the container */
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .cosmic-ai-title {
+            font-size: 4rem; /* Adjusted for overall content */
+            font-weight: 800;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6); /* Cosmic gradient */
+            animation: textGradientShift 4s ease-in-out infinite alternate;
+            margin-bottom: 1rem;
+        }
+        /* Smaller font size for mobile */
+        @media (max-width: 768px) {
+            .cosmic-ai-title {
+                font-size: 3rem;
+            }
+        }
+
+
+        @keyframes textGradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .release-info {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+            color: #e0e0e0;
+            animation: fadeInUp 1.2s ease-out forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+            font-weight: 600;
+        }
+        .release-info strong {
+            color: #f472b6; /* Highlight dates */
+        }
+        /* Adjust font size for mobile */
+        @media (max-width: 768px) {
+            .release-info {
+                font-size: 1.4rem;
+            }
+        }
+
+        .about-cosmic-ai {
+            margin-top: 3rem;
+            text-align: left;
+            color: #d1d5db; /* Text gray-300 equivalent */
+            animation: fadeInUp 1.5s ease-out forwards;
+            animation-delay: 1s;
+            opacity: 0;
+        }
+        .about-cosmic-ai h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #93c5fd; /* Blue-300 equivalent */
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .about-cosmic-ai p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .back-button {
+            margin-top: 2.5rem;
+            display: inline-block;
+            background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: fadeInUp 2s ease-out forwards;
+            animation-delay: 2.5s; /* Longer delay for button */
+            opacity: 0;
+        }
+        .back-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Static 8K Galaxy Background -->
+    <div class="static-galaxy-background"></div>
+
+    <div class="coming-soon-container">
+        <h1 class="cosmic-ai-title">Cosmic AI</h1>
+
+        <p class="release-info">
+            Official Release: <strong>August 2025</strong>
+            <br>Early Access starting: <strong>July 4, 2025</strong>
+        </p>
+
+        <div class="about-cosmic-ai">
+            <h2>About Cosmic AI: Your Gateway to the Universe</h2>
+            <p>Cosmic AI is a revolutionary artificial intelligence system designed to redefine humanity's interaction with space. Leveraging cutting-edge machine learning and vast datasets from global astronomical observatories, Cosmic AI provides unparalleled insights into the cosmos.</p>
+            <p>From predicting celestial phenomena with remarkable accuracy to optimizing deep-space mission trajectories, Cosmic AI acts as your intelligent co-pilot in the grand adventure of space exploration. It empowers scientists, researchers, and enthusiasts alike to explore, analyze, and understand the universe at an unprecedented scale.</p>
+            <p>Experience the future of astronomical discovery. Get ready to embark on a journey that pushes the boundaries of human knowledge and unlocks the universe's deepest secrets.</p>
+        </div>
+
+        <a href="index.html" class="back-button">Go Back to Main Page</a>
+    </div>
+
+</body>
+</html>
