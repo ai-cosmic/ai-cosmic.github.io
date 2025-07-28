@@ -1,2 +1,2 @@
-# [cosmic.ai](https://alan-betty.github.io/cosmic.ai/index.html)
+# [cosmic.ai](https://ai-cosmic.github.io)
 
